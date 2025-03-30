@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Happy Monthsarry!</title>
+        <style>
+
+            :root {
+                --primary: #fff;
+                --bg-color: rgb(5, 53, 61);
+                --bg-envelope-color: #f5edd1;
+                --envelope-tab: #ecdeb8;
+                --envelope-cover: #e6cfa7;
+                --shadow-color:rgba(0, 0, 0, 0.2);
+                --txt-color: #444;
+                --heart-color: rgb(252, 8, 231);
+            }
+
+            body {
+                background-color: beige;
+                margin: 35px;
+                padding: 20px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+
+            .container {
+                margin-bottom: 20%;
+                position: absolute;
+                margin-right: 50%;
+                margin-left: 50%;
+            }
+
+            .container > .envelope-wrapper {
+                background: var(--bg-envelope-color);
+                box-shadow: 0 0 40px var(--shadow-color);
+            }
+
+            .container > .envelope-wrapper > .envelope {
+                position: relative;
+                width: 250px;
+                height: 180px;
+                margin: 20px auto;
+                cursor: pointer;
+                z-index: 2;
+                outline: 2px solid #8b4513;
+            }
+
+            .container > .envelope-wrapper > .envelope::before {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                border-top: 110px solid var(--envelope-tab);
+                border-right: 125px solid transparent;
+                border-left: 125px solid transparent;
+                top: 0;
+                transform-origin: top;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .container > .envelope-wrapper > .envelope::after {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                border-top: 105px solid transparent;
+                border-left: 125px solid var(--envelope-cover);
+                border-right: 125px solid var(--envelope-cover);
+                border-bottom: 75px solid var(--envelope-cover);
+                bottom: 0;
+            }
+
+            .heart {
+            width: 40px;
+            height: 40px;
+            background-color: #d63384; /* Soft pink for heart */
+            position: absolute;
+            top: 85px;
+            left: 52%;
+            transform: translateX(-50%);
+            clip-path: path("M24 4c-2-2-5.333-2-7.5 0-1 .988-1.5 1.988-1.5 3 0-1.012-.5-2.012-1.5-3C11.333 2 8 2 6 4 3.333 6.667 3.333 10 6 12.5l8.5 8.5 8.5-8.5c2.667-2.5 2.667-5.833 0-8.5z");
+            z-index: 5;
+        }
+
+            .letter {
+                display:  none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                bottom: 0;
+                width: 80%;
+                max-width: 400px;
+                height: 60%;
+                background-color: white;
+                padding: 10px;
+                box-shadow: 0 0 10px var(--shadow-color);
+                z-index: 4;
+                outline: 4px solid transparent;
+                transition: 0.5s;
+            }
+
+            .letter > .text {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 12px;
+                color: var(--txt-color);
+                text-align: justify;
+            }
+
+            button {
+                position: relative;
+                background-color: #e6cfa7; /* Soft pink for button */
+                color: black;
+                border: none;
+                padding: 10px 15px;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 190%;
+                border-radius: 5px;
+                letter-spacing: 2px;
+                margin-right: 20px;
+            }
+
+            button:hover {
+            background-color: burlywood; /* Lighter pink on hover */
+            }
+
+            .open::before {
+            transform: rotateX(180deg);
+        }
+
+        h3 {
+            position: absolute;
+            color: darkslategray; /* Soft pink for text */
+            margin-bottom: 150%;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .new-section {
+            display: flex;
+            position: absolute;
+            margin-top: 180%;
+            left: 10%;
+            right: 10%;
+        }
+
+        .new-section p{
+            text-align: center;    
+        }
+
+        /* Link button */
+        a {
+            position: absolute;
+            display: inline-block;
+            text-decoration: none;
+            background-color: #e6cfa7; /* Soft pink for link */
+            color: black;
+            border: none;
+            padding: 10px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 90px;
+            border-radius: 5px;
+            letter-spacing: 2px;
+            right: 37%;
+        }
+
+        a:hover {
+            background-color: burlywood;
+        }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="envelope-wrapper">
+                <div class="envelope" onclick="openLetter()">
+                    <div class="heart"></div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Hey baby! <br><br> You've got a letter💌</h3>
+        
+
+        <div class="letter" id="letter">
+                        <div class="text">
+                            <strong>To my human diary,</strong>
+                            <p>
+                                Happy Monthssary, baby! You are the most precious person in my life, and I can't express 
+                                how much you mean to me. Every day with you brings joy, and I wake up with a smile knowing 
+                                you're by my side. You are my reason for happiness, and I appreciate everything you do for me.
+                                Your kindness, patience, and support never go unnoticed. You lift me up when I’m down, comfort 
+                                me when I need it, and always inspire me to be better. <br><br>You make me feel loved and special in ways 
+                                I never thought possible. You're everything I ever dreamed of and more. You are my soulmate, 
+                                my best friend, and the love of my life. I can't imagine a day without you. You make me laugh when 
+                                I’m sad, calm me when I’m angry, and give me strength when I’m weak. With you, everything feels right.
+                                I want to be the same for you, supporting and encouraging you just as you do for me. I want to be the 
+                                person you can lean on and share everything with. You deserve all the love and happiness in the world, 
+                                and I will always be here to give that to you. Please take care of yourself and remember that no matter 
+                                what, you’re never alone. Life can be tough, but we’ll face everything together. <br><br>
+                                Happy Monthssary, baby! I love you to the moon and back, and I always will. You’re my everything, and I
+                                can’t wait for all the beautiful moments ahead of us.
+                <br><br>
+                <strong>Forever yours, </strong><br><br>Ruth ❤️
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <button onclick="openLetter()">Click to open it</button>
+                    <button id="closeButton" onclick="closeLetter()">Close</button>
+
+                    <div class="new-section">
+                    <p>Click the next button below after you read the letter.</p>
+                    <a href="clickhere.html">Click here</a>
+                    </div>
+                    
+        <script>
+            function openLetter() {
+            document.querySelector(".envelope").classList.add("open");
+            document.getElementById("letter").style.display = "block";
+            document.getElementById("closeButton").style.display = "block";
+        }
+
+        function closeLetter() {
+            document.querySelector(".envelope").classList.remove("open");
+            document.getElementById("letter").style.display = "none";
+        }
+        </script>
+    </body>
+</html>
